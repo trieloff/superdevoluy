@@ -1,1 +1,3 @@
-/* below the fold CSS goes here */
+main>div, picture {
+  display: block;
+}
