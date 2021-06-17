@@ -36,3 +36,4 @@ export default function decorate($block, name, doc) {
   $block.innerHTML = '';
   $block.appendChild($toc);
 }
+
