@@ -2,12 +2,40 @@
   <input id="lastname" type="text" placeholder="Nom" required>
   <input id="firstname" type="text" placeholder="Prénom" required>
   <input id="email" type="email" placeholder="Email" required>
-  <label for="recommand">Allez-vous recommander la sation à vos amis ou votre famille ?</label>
-  <select id="recommand">
-    <option value="yes" default>Oui</option>
-    <option value="no">Non</option>
-  </select>
+  
+  <div class="group">
+    <textarea id="station" placeholder="Avez-vous apprécié la station? (commerces, restauration, pistes, activités, après-ski)"></textarea>
+    <div class="fieldGroup">
+      <label for="recommand_station">Allez-vous recommander la sation à vos amis ou votre famille ?</label>
+      <select id="recommand_station">
+        <option value="yes" default>Oui</option>
+        <option value="no">Non</option>
+      </select>
+    </div>
   </div>
-  <textarea id="message" placeholder="Un message particulier à nous addresser?" rows="3"></textarea>
+
+  <div class="group">
+    <textarea id="appart" placeholder="Avez-vous apprécié l'appartement? (propreté, équipements, situation)"></textarea>
+    <div class="fieldGroup">
+      <label for="recommand_appart">Allez-vous recommander l'appartement à vos amis ou votre famille ?</label>
+      <select id="recommand_appart">
+        <option value="yes" default>Oui</option>
+        <option value="no">Non</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="group">
+    <textarea id="service" placeholder="Avez-vous apprécié le service de l'agence? (accueil, état des lieux, départ)"></textarea>
+    <div class="fieldGroup">
+      <label for="recommand_service">Allez-vous recommander l'agence à vos amis à vos amis ou votre famille ?</label>
+      <select id="recommand_service">
+        <option value="yes" default>Oui</option>
+        <option value="no">Non</option>
+      </select>
+    </div>
+  </div>
+
+  <textarea id="message" placeholder="Un autre message particulier à nous addresser?"></textarea>
   <button id="send" type="button">Envoyer</button>
 </form>
