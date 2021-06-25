@@ -23,6 +23,10 @@ body {
   line-height: 2em;
 }
 
+a:any-link {
+  color: var(--text-color);
+}
+
 main > div {
   display: none;
 }
