@@ -1,0 +1,1 @@
+window.hlx.sidekick.config.outerHost = 'main--superdevoluy--kptdobe.hlx.live';
