@@ -44,6 +44,17 @@ export function loadCSS(href) {
   }
 }
 
+export function loadScript(url, callback, type) {
+  const $head = document.querySelector('head');
+  const $script = createTag('script', { src: url });
+  if (type) {
+    $script.setAttribute('type', type);
+  }
+  $head.append($script);
+  $script.onload = callback;
+  return $script;
+}
+
 /**
  * Retrieves the content of a metadata tag.
  * @param {string} name The metadata name (or property)

@@ -1,13 +1,13 @@
 <form id="reservation-form">
   <input id="lastname" type="text" placeholder="Nom" required>
   <input id="firstname" type="text" placeholder="Prénom" required>
-  <input id="email" type="text" placeholder="Email" required>
-  Allez-vous recommander la sation à vos amis ou votre famille ?
+  <input id="email" type="email" placeholder="Email" required>
+  <label for="recommand">Allez-vous recommander la sation à vos amis ou votre famille ?</label>
   <select id="recommand">
-    <option value=""></option>
-    <option value="yes">Oui</option>
+    <option value="yes" default>Oui</option>
     <option value="no">Non</option>
   </select>
+  </div>
   <textarea id="message" placeholder="Un message particulier à nous addresser?" rows="3"></textarea>
   <button id="send" type="button">Envoyer</button>
 </form>
