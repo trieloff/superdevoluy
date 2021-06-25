@@ -10,10 +10,11 @@ picture {
   display: none;
 }
 
-
 body {
   text-align: center;
   font-size: 1.5rem;
+  font-family: var(--font);
+  color: var(--text-color);
   margin: 0;
   font-weight: 400;
   overflow-x: hidden;
@@ -22,30 +23,66 @@ body {
   line-height: 2em;
 }
 
-main>div {
+main > div {
   display: none;
 }
 
-main>div.hero-section {
-  position: relative;
+main .hero-section {
   color: white;
-  display: block;
+  position: relative;
+  padding: 120px 32px;
 }
 
-main>div.hero-section p:first-child {
+main .hero-section h1 {
   margin: 0;
-  padding: 0;
 }
 
-main>div.hero-section picture {
-  display: block;
+main .hero-section p {
+  margin: 16px 0;
 }
 
-main>div.hero-section img {
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-  object-position: center center;
+main .hero-section picture {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+main .hero-section picture img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+main .hero-section em {
+  position: absolute;
+  left: 10px;
+  bottom: -10px;
+  font-size: 1rem;
+}
+
+main .hero-section > div {
+    padding: 0;
+}
+
+@media (min-width:600px) {
+  main .hero-section {
+    padding: 80px 0;
+  }
+
+  main .hero-section > div {
+    max-width: 672px;
+    margin: auto;
+  }
+}
+
+@media (min-width:900px) {
+    main .hero-section > div {
+      max-width: 950px;
+    }
 }
 
 main h1 {
@@ -53,31 +90,44 @@ main h1 {
   font-size: 2rem;
 }
 
-
-main>div.hero-section h1 {
-  position: absolute;
-  top: calc(50% - 50px);
-  margin: 0 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 30px 30px;
-  display: block;
-  width: 600px;
-  margin: 0px 40px;
-  box-sizing: border-box;
-  left: calc(50% - 400px);
-  font-family: var(--font);
-}
-
-main>div.hero-section em {
-  position: absolute;
-  top: calc(100% - 64px);
-  display: block;
-  box-sizing: border-box;
-  left: 10px;
-  font-family: var( --font);
-  font-size: 1rem;
-}
-
 img {
   max-width: 100%;
+}
+
+main .section-wrapper {
+  padding-top: 20px;
+}
+
+main .section-wrapper:first-of-type {
+  padding-top: 20px;
+}
+
+main .section-wrapper:first-of-type {
+  padding: 0;
+}
+
+main .section-wrapper > div {
+  margin: auto;
+  max-width: 375px;
+  padding: 0 32px;
+}
+
+main .section-wrapper > div:empty {
+  padding: 0;
+}
+main .section-wrapper p {
+    margin: 32px 0;
+    text-align: left;
+}
+
+@media (min-width:900px) {
+  main .section-wrapper > div {
+    max-width: 830px;
+  }
+}
+
+@media (min-width:1200px) {
+  main .section-wrapper > div {
+    max-width: 1024px;
+  }
 }

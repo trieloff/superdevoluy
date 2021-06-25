@@ -95,29 +95,30 @@ function wrapSections($sections) {
 }
 
 /**
- * Decorates a block.
- * @param {Element} $block The block element
- */
-export function decorateBlock($block) {
-  const classes = Array.from($block.classList.values());
-  const blockName = classes[0];
-  if (!blockName) return;
-  const $section = $block.closest('.section-wrapper');
-  if ($section) {
-    $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
-  }
-  $block.classList.add('block');
-  $block.setAttribute('data-block-name', blockName);
-}
-
-/**
  * Decorates all blocks in a container element.
  * @param {Element} $main The container element
  */
-function decorateBlocks($main) {
-  $main
-    .querySelectorAll('div.section-wrapper > div > div')
-    .forEach(($block) => decorateBlock($block));
+ export function decorateBlocks($main) {
+  $main.querySelectorAll('div.section-wrapper > div > div').forEach(($block) => {
+    const classes = Array.from($block.classList.values());
+    let blockName = classes[0];
+    if (!blockName) return;
+    const $section = $block.closest('.section-wrapper');
+    if ($section) {
+      $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
+    }
+    const blocksWithOptions = ['carousel', 'image-list', 'table-of-contents'];
+    blocksWithOptions.forEach((b) => {
+      if (blockName.startsWith(`${b}-`)) {
+        const options = blockName.substring(b.length + 1).split('-').filter((opt) => !!opt);
+        blockName = b;
+        $block.classList.add(b);
+        $block.classList.add(...options);
+      }
+    });
+    $block.classList.add('block');
+    $block.setAttribute('data-block-name', blockName);
+  });
 }
 
 /**
