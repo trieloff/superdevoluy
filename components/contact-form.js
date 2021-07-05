@@ -9,22 +9,20 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+/* global document */
 
-module.exports = {
-  root: true,
-  extends: '@adobe/helix',
-  rules: {
-    // allow reassigning param
-    'no-param-reassign': [2, { props: false }],
-    'linebreak-style': ['error', 'unix'],
-    'import/extensions': ['error', {
-      js: 'always',
-    }],
-  },
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    allowImportExportEverywhere: true,
-    sourceType: 'module',
-    requireConfigFile: false,
-  },
-};
+const CONTACT_URL = '/cgi-bin/contact';
+
+const send = () => {
+  const data = {};
+
+  data.lastname = document.getElementById('lastname').value;
+  data.firstname = document.getElementById('firstname').value;
+  data.email = document.getElementById('email').value;
+
+  console.log(data);
+}
+
+const init = () => {
+  document.getElementById('send').addEventListener('click', send);
+}

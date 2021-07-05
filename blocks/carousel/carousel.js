@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Adobe. All rights reserved.
+ * Copyright 2021 Alexandre Capt. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -15,7 +15,6 @@
 
 import {
   createTag,
-  webpPolyfill,
 } from '../../scripts/scripts.js';
 
 function masonrize($cells, $masonry, force) {
@@ -70,6 +69,82 @@ function masonrize($cells, $masonry, force) {
     }
   }
 }
+
+const $fsmContainer = document.createElement('div');
+$fsmContainer.setAttribute('id', 'fsmContainer');
+document.body.appendChild($fsmContainer);
+$fsmContainer.style.position = "absolute";
+
+let position = {};
+let size = {};
+
+const maximize = (event) => {
+  const $this = event.currentTarget.parentNode;
+  const clientRect = $this.getBoundingClientRect();
+  position = {
+      top: $this.getBoundingClientRect().top - document.body.getBoundingClientRect().top,
+      left: clientRect.left
+  }
+
+  size = {
+    width: window.getComputedStyle($this).width,
+    height: window.getComputedStyle($this).height
+  }
+  
+  $fsmContainer.style.position = "absolute";
+  $fsmContainer.style.top = position.top + 'px';
+  $fsmContainer.style.left = position.left + 'px';
+  $fsmContainer.style.height = size.height;
+  $fsmContainer.style.width = size.width;
+  $fsmContainer.style.margin = $this.style.margin;
+  document.body.classList.add('no-scroll');
+  
+  setTimeout(() => {
+    $fsmContainer.innerHTML = $this.innerHTML;
+    $fsmContainer.classList.add('growing');
+    $fsmContainer.style.height = '100vh';
+    $fsmContainer.style.width = '100vw';
+    $fsmContainer.style.top = window.pageYOffset + 'px';
+    $fsmContainer.style.left = '0';
+    $fsmContainer.style.margin = '0';
+  }, 1);
+  
+  setTimeout(function(){
+    const newHeight = window.getComputedStyle($fsmContainer.firstChild).height;
+    let top = (window.innerHeight - newHeight.slice(0, -2)) / 2;
+    top = top > 0 ? top : 0;
+    $fsmContainer.style['padding-top'] = top + 'px';
+
+    $fsmContainer.classList.remove('growing');
+    $fsmContainer.classList.add('full-screen');
+  }, 1000);
+};
+
+
+const reduce = (event) => {
+  const $this = event.currentTarget;
+  
+  $this.style.height = size.height;
+  $this.style.width = size.width;
+  $this.style.top = position.top + 'px';
+  $this.style.left = position.left + 'px';
+  $this.style.margin = '0';
+  $this.classList.remove('full-screen');
+  $this.classList.add('shrinking');
+  $fsmContainer.style['padding-top'] = '0';
+
+  document.body.classList.remove('no-scroll');
+  
+  setTimeout(() => {
+    while($this.firstChild) $this.removeChild($this.firstChild);
+    const classList = $this.classList;
+    while (classList.length > 0) {
+       classList.remove(classList.item(0));
+    }
+    $this.style = '';
+
+  }, 1000);
+};
 
 function getCarouselState($block) {
   const platform = $block.querySelector('.carousel-platform');
@@ -215,4 +290,11 @@ export async function decorateItemList($block) {
 
 export default function decorate($block) {
   decorateItemList($block);
+
+  const $pictures = $block.querySelectorAll('picture');;
+  for (let i = 0; i < $pictures.length; i++) {
+    const pic = $pictures[i];
+    pic.addEventListener('click', maximize);
+  }
+  $fsmContainer.addEventListener('click', reduce);
 }

@@ -283,5 +283,20 @@ main .carousel.horizontal .item-link {
   main .carousel.horizontal {
     max-width: 1090px;
   }
+}
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+main .carousel .item > div, #fsmContainer {
+  transition: 1s;
+}
+
+#fsmContainer.full-screen {
+  height: 100vh;
+  z-index: 100;
+  margin: 0;
+  border-radius: 0;
+  background-color: lightgray;
 }
