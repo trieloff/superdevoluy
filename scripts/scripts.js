@@ -372,11 +372,20 @@ function setLCPTrigger(doc, postLCP) {
   }
 }
 
-export function decoratePhoneLinks() {
+function decoratePhoneLinks() {
   ['tel', 'sms'].forEach((p) => {
     document.querySelectorAll(`a[href*="/${p}/"]`).forEach(($a) => {
       $a.href = `${p}:${$a.href.split(`/${p}/`)[1]}`;
     });
+  });
+}
+
+async function loadAnalytics() {
+  loadScript('https://www.googletagmanager.com/gtag/js?id=G-YSED1EH9V6', () => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YSED1EH9V6');
   });
 }
 
@@ -396,10 +405,10 @@ async function decoratePage(win = window) {
       loadCSS('/styles/lazy-styles.css');
       // addFavIcon('/favicon.svg');
       decoratePhoneLinks();
+      loadAnalytics();
 
     });
   }
 }
 
 decoratePage(window);
-
