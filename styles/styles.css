@@ -11,7 +11,7 @@ picture {
 }
 
 body {
-  text-align: center;
+  text-align: left;
   font-size: 1.1rem;
   font-family: var(--font);
   color: var(--text-color);
@@ -21,6 +21,10 @@ body {
   overflow-y: scroll;
   width: 100%;
   line-height: 2em;
+}
+
+h1, h2, h3, h4, h5 {
+  text-align: center;
 }
 
 a:any-link {

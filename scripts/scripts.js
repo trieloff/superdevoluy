@@ -372,6 +372,14 @@ function setLCPTrigger(doc, postLCP) {
   }
 }
 
+export function decoratePhoneLinks() {
+  ['tel', 'sms'].forEach((p) => {
+    document.querySelectorAll(`a[href*="/${p}/"]`).forEach(($a) => {
+      $a.href = `${p}:${$a.href.split(`/${p}/`)[1]}`;
+    });
+  });
+}
+
 /**
  * Decorates the page.
  * @param {Window} win The window
@@ -386,7 +394,9 @@ async function decoratePage(win = window) {
       // post LCP actions go here
       await loadBlocks($main);
       loadCSS('/styles/lazy-styles.css');
-      addFavIcon('/favicon.svg');
+      // addFavIcon('/favicon.svg');
+      decoratePhoneLinks();
+
     });
   }
 }

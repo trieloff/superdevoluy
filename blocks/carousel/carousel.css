@@ -291,6 +291,7 @@ body.no-scroll {
 
 main .carousel .item > div, #fsmContainer {
   transition: 1s;
+  text-align: center;
 }
 
 #fsmContainer.full-screen {
