@@ -73,3 +73,24 @@ form .fieldGroup {
   flex-direction: row;
   align-items: center;
 }
+
+main .section-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+main .section-wrapper tr {
+  border-bottom: 1px solid lightgrey;
+}
+
+main .section-wrapper table td p {
+  margin: 0;
+}
+
+main .section-wrapper table tr th:nth-child(1) {
+  width: 100px;
+}
+
+main .section-wrapper table tr th:nth-child(2) {
+  width: 300px;
+}
