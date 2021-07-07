@@ -13,8 +13,8 @@
 
 // This file contains the project-specific configuration for the sidekick.
 window.hlx.initSidekick({
-  project: 'appartementsuperdevoluy.fr',
-  host: 'appartementsuperdevoluy.fr',
+  project: 'www.appartementsuperdevoluy.fr',
+  host: 'www.appartementsuperdevoluy.fr',
   byocdn: true,
   hlx3: true
 });
