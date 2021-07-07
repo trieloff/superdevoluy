@@ -6,10 +6,6 @@
   --font-alt: 'Mulish';
 }
 
-picture {
-  display: none;
-}
-
 body {
   text-align: left;
   font-size: 1.1rem;
@@ -21,6 +17,11 @@ body {
   overflow-y: scroll;
   width: 100%;
   line-height: 2em;
+  display: none;
+}
+
+body.appear {
+  display: block;
 }
 
 h1, h2, h3, h4, h5 {
@@ -29,10 +30,6 @@ h1, h2, h3, h4, h5 {
 
 a:any-link {
   color: var(--text-color);
-}
-
-main > div {
-  display: none;
 }
 
 main .hero-section {

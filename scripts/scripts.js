@@ -398,16 +398,15 @@ async function decoratePage(win = window) {
   const $main = doc.querySelector('main');
   if ($main) {
     decorateMain($main);
-    doc.querySelector('body').classList.add('appear');
     setLCPTrigger(doc, async () => {
+      loadCSS('/styles/lazy-styles.css');
       // post LCP actions go here
       await loadBlocks($main);
-      loadCSS('/styles/lazy-styles.css');
-      // addFavIcon('/favicon.svg');
       decoratePhoneLinks();
-      loadAnalytics();
-
+      document.querySelector('html').lang = 'fr';
+      window.setTimeout(loadAnalytics, 2000);
     });
+    doc.querySelector('body').classList.add('appear');
   }
 }
 

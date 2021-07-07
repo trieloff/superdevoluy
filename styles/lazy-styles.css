@@ -6,10 +6,6 @@
   --font-alt: 'Mulish';
 }
 
-main>div, picture {
-  display: block;
-}
-
 form {
   margin: 0;
 }
