@@ -1,3 +1,14 @@
 .hlx/*
 logs/*
 node_modules/*
+
+/target
+/dist
+**/*.rs.bk
+Cargo.lock
+bin/
+pkg/
+wasm-pack.log
+worker/
+node_modules/
+.cargo-ok

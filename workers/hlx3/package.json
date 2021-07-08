@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "hlx3",
+  "version": "1.0.0",
+  "description": "hlx3 - Cloudflare Worker project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandre Capt",
+  "license": "MIT"
+}

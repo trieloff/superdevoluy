@@ -1,0 +1,7 @@
+name = "hlx3"
+type = "javascript"
+
+account_id = "b06b57ea25ac8f4dc7ab8674006f2153"
+workers_dev = true
+route = "www.appartementsuperdevoluy.fr/*"
+zone_id = "f1ddd2f67cdc95f28cc155c5946c982f"
