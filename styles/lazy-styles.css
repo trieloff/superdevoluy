@@ -6,6 +6,10 @@
   --font-alt: 'Mulish';
 }
 
+strong::after {
+  content: " (strong)";
+}
+
 form {
   margin: 0;
 }

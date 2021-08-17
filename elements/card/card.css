@@ -10,13 +10,9 @@
  * governing permissions and limitations under the License.
  */
 
-main .section-wrapper .card.block {
+main .section-wrapper helix-card > div {
   text-align: left;
   margin-bottom: 50px;
-  background: red;
-}
-
-main .section-wrapper .card.block strong {
-  font-style: italic;
+  background: green!important;
 }
 
