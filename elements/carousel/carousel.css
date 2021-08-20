@@ -1,4 +1,4 @@
-main .carousel {
+main helix-carousel {
   max-width: 375px;
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +9,7 @@ main .carousel {
   text-align: left;
 }
 
-main .carousel .item-link {
+main helix-carousel .item-link {
   text-decoration: none;
   color: #1473E6;
   padding-left: 16px;
@@ -17,7 +17,7 @@ main .carousel .item-link {
   display: flex;
 }
 
-main .carousel .item-link::after {
+main helix-carousel .item-link::after {
   display: flex;
   width: 6px;
   height: 6px;
@@ -35,11 +35,11 @@ main .carousel .item-link::after {
   margin-right: 2.25px;
 }
 
-main .carousel .item p {
+main helix-carousel .item p {
   margin: 0;
 }
 
-main .carousel .item {
+main helix-carousel .item {
   display: flex;
   flex-direction: column;
   width: 240px;
@@ -51,41 +51,41 @@ main .carousel .item {
   text-decoration: unset;
 }
 
-main .carousel .item > div:first-child > a:any-link {
+main helix-carousel .item > div:first-child > a:any-link {
   padding-left: 0;
 }
 
-main .carousel .item img, main .carousel .item video {
+main helix-carousel .item img, main helix-carousel .item video {
   border-radius: 10px;
   width: 300px;
 }
 
-main .carousel.large .item {
+main helix-carousel.large .item {
   width: 100%;
   margin: 0;
   border: 0;
 }
 
-main .carousel.large .item > div {
+main helix-carousel.large .item > div {
   margin: auto;
 }
 
-main .carousel.large .item img {
+main helix-carousel.large .item img {
   width: 100%;
 }
 
-main .carousel + .button-container > a {
+main helix-carousel + .button-container > a {
   margin: 0;
 }
 
-main .carousel.masonry {
+main helix-carousel.masonry {
   columns: 240px 1;
   max-width: 311px;
   margin-left: auto;
   margin-right: auto;
 }
 
-main .carousel.masonry .item {
+main helix-carousel.masonry .item {
   margin-top: 0;
   margin-bottom: 32px;
   padding: 0;
@@ -93,7 +93,7 @@ main .carousel.masonry .item {
 
 /* horizontal carousel (carousel) */
 
-main .carousel.horizontal {
+main helix-carousel.horizontal {
   display: block;
   overflow: hidden;
   max-width: 375px;
@@ -102,7 +102,7 @@ main .carousel.horizontal {
   height: 220px;
 }
 
-main .carousel.horizontal .carousel-platform {
+main helix-carousel.horizontal .carousel-platform {
   position: relative;
   width: fit-content;
   height: 220px;
@@ -113,7 +113,7 @@ main .carousel.horizontal .carousel-platform {
   transition: left 0.4s;
 }
 
-main .carousel.horizontal .carousel-fader-left {
+main helix-carousel.horizontal .carousel-fader-left {
   display: none;
   position: relative;
   height: 220px;
@@ -128,7 +128,7 @@ main .carousel.horizontal .carousel-fader-left {
   transition: display 0.2s;
 }
 
-main .carousel.horizontal .carousel-fader-right {
+main helix-carousel.horizontal .carousel-fader-right {
   display: none;
   position: relative;
   height: 220px;
@@ -143,7 +143,7 @@ main .carousel.horizontal .carousel-fader-right {
   transition: display 0.2s;
 }
 
-main .carousel.horizontal a.button.carousel-arrow {
+main helix-carousel.horizontal a.button.carousel-arrow {
   cursor: pointer;
   display: block;
   float: left;
@@ -155,7 +155,7 @@ main .carousel.horizontal a.button.carousel-arrow {
   border-radius: 50%;
 }
 
-main .carousel.horizontal a.button.carousel-arrow::before {
+main helix-carousel.horizontal a.button.carousel-arrow::before {
   content: '';
   position: absolute;
   margin-top: 11px;
@@ -165,21 +165,21 @@ main .carousel.horizontal a.button.carousel-arrow::before {
   border-right: solid 2px #444;
 }
 
-main .carousel.horizontal a.button.carousel-arrow-left::before {
+main helix-carousel.horizontal a.button.carousel-arrow-left::before {
   margin-left: 13px;
   transform: rotate(-135deg);
 }
 
-main .carousel.horizontal a.button.carousel-arrow-right {
+main helix-carousel.horizontal a.button.carousel-arrow-right {
   float: right;
 }
 
-main .carousel.horizontal a.button.carousel-arrow-right::before {
+main helix-carousel.horizontal a.button.carousel-arrow-right::before {
   margin-left: 9px;
   transform: rotate(45deg);
 }
 
-main .carousel.horizontal .item {
+main helix-carousel.horizontal .item {
   min-height: 220px;
   max-height: 220px;
   width: max-content;
@@ -187,13 +187,13 @@ main .carousel.horizontal .item {
   margin-right: 12px;
 }
 
-main .carousel.horizontal .item img,
-main .carousel.horizontal .item video {
+main helix-carousel.horizontal .item img,
+main helix-carousel.horizontal .item video {
   height: 200px;
   width: auto;
 }
 
-main .carousel.horizontal .item-link {
+main helix-carousel.horizontal .item-link {
   display: none;
 }
 
@@ -203,21 +203,21 @@ main .carousel.horizontal .item-link {
     max-width: 900px;
   }
 
-  main .carousel {
+  main helix-carousel {
     max-width: unset;    
   }
 
-  main .carousel .item {
+  main helix-carousel .item {
     width: 240px;
     margin-left: 20px;
     margin-right: 20px;
   }
 
-  main .carousel .item img {
+  main helix-carousel .item img {
     width: 240px;
   }
 
-  main .carousel.masonry {
+  main helix-carousel.masonry {
     display: block;
     columns: 240px 3;
     margin-left: auto;
@@ -227,19 +227,19 @@ main .carousel.horizontal .item-link {
 
   /* carousel inside columns */
 
-  main .columns .carousel {
+  main .columns helix-carousel {
     margin-top: 0;
     margin-left: 40px;
   }
 
   /* horizontal carousel (carousel) */
 
-  main .carousel.horizontal {
+  main helix-carousel.horizontal {
     max-width: 800px;
   }
 
-  main .carousel.horizontal .carousel-fader-left,
-  main .carousel.horizontal .carousel-fader-right {
+  main helix-carousel.horizontal .carousel-fader-left,
+  main helix-carousel.horizontal .carousel-fader-right {
     width: 150px;
   }
 }
@@ -250,7 +250,7 @@ main .carousel.horizontal .item-link {
     max-width: 1200px;
   }
 
-  main .carousel.masonry {
+  main helix-carousel.masonry {
     display: block;
     columns: 240px 4;
     margin: auto;
@@ -262,25 +262,25 @@ main .carousel.horizontal .item-link {
 
   /* carousel inside columns */
 
-  main .columns .carousel {
+  main .columns helix-carousel {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
   }
 
-  main .columns .carousel .item {
+  main .columns helix-carousel .item {
     justify-content: flex-start;
     min-width: 132px;
   }
 
-  main .columns .carousel .item-link {
+  main .columns helix-carousel .item-link {
     font-size: 0.875rem;
     font-weight: 400;
   }
 
   /* horizontal carousel (carousel) */
 
-  main .carousel.horizontal {
+  main helix-carousel.horizontal {
     max-width: 1090px;
   }
 }
@@ -289,7 +289,7 @@ body.no-scroll {
   overflow: hidden;
 }
 
-main .carousel .item > div, #fsmContainer {
+main helix-carousel .item > div, #fsmContainer {
   transition: 1s;
   text-align: center;
 }

@@ -110,10 +110,11 @@ function wrapSections($sections) {
  * @param {Element} $main The container element
  */
  export function decorateBlocks($main) {
-  $main.querySelectorAll('div.section-wrapper > div > div').forEach(($block) => {
-    const classes = Array.from($block.classList.values());
-    let blockName = classes[0];
-    if (!blockName) return;
+  Array.from($main.querySelectorAll('div.section-wrapper > div > *'))
+    .filter(($elm) => $elm.tagName.toLowerCase().startsWith('helix-'))
+    .forEach(($block) => {
+    console.log($block);
+    let blockName = $block.tagName.toLowerCase().replace(/^helix-/, '');
     const $section = $block.closest('.section-wrapper');
     if ($section) {
       $section.classList.add(`${blockName}-container`.replace(/--/g, '-'));
@@ -127,7 +128,7 @@ function wrapSections($sections) {
         $block.classList.add(...options);
       }
     });
-    $block.classList.add('block');
+    // $block.classList.add('block');
     $block.setAttribute('data-block-name', blockName);
   });
 }
@@ -139,16 +140,16 @@ function wrapSections($sections) {
 export async function loadBlock($block) {
   const blockName = $block.getAttribute('data-block-name');
   try {
-    const mod = await import(`/blocks/${blockName}/${blockName}.js`);
+    /* const mod = await import(`/blocks/${blockName}/${blockName}.js`);
     if (mod.default) {
       await mod.default($block, blockName, document);
-    }
+    } */
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(`failed to load module for ${blockName}`, err);
   }
 
-  loadCSS(`/blocks/${blockName}/${blockName}.css`);
+  loadCSS(`/elements/${blockName}/${blockName}.css`);
 }
 
 /**

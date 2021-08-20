@@ -10,18 +10,23 @@
  * governing permissions and limitations under the License.
  */
 /* global window */
+import {
+  loadCSS
+} from '../../scripts/scripts.js';
 
-async function decorateBlockEmbeds($block) {
-  const path = $block.textContent;
-  if (!path) return;
+class Embed extends HTMLElement {
+  constructor() {
+    super();
+    const path = this.textContent;
+    if (!path) return;
 
-  const resp = await fetch(path);
-  if (resp.ok) {
-    const html = await resp.text();
-    $block.innerHTML = html;
+    const resp = await fetch(path);
+    if (resp.ok) {
+      const html = await resp.text();
+      this.innerHTML = html;
+    }
   }
 }
 
-export default async function decorate($block) {
-  decorateBlockEmbeds($block);
-}
+customElements.define('helix-embed', Embed);
+loadCSS(`/elements/embed/embed.css`);

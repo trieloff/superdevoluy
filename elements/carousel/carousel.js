@@ -14,7 +14,7 @@
 /* eslint-disable import/named, import/extensions */
 
 import {
-  createTag,
+  createTag, loadCSS
 } from '../../scripts/scripts.js';
 
 function masonrize($cells, $masonry, force) {
@@ -288,13 +288,19 @@ export async function decorateItemList($block) {
   }
 }
 
-export default function decorate($block) {
-  decorateItemList($block);
+class Carousel extends HTMLElement {
+  constructor() {
+    super();
+    decorateItemList(this);
 
-  const $pictures = $block.querySelectorAll('picture');;
-  for (let i = 0; i < $pictures.length; i++) {
-    const pic = $pictures[i];
-    pic.addEventListener('click', maximize);
+    const $pictures = this.querySelectorAll('picture');;
+    for (let i = 0; i < $pictures.length; i++) {
+      const pic = $pictures[i];
+      pic.addEventListener('click', maximize);
+    }
+    $fsmContainer.addEventListener('click', reduce);
   }
-  $fsmContainer.addEventListener('click', reduce);
 }
+
+customElements.define('helix-carousel', Carousel);
+loadCSS(`/elements/carousel/carousel.css`);
