@@ -20,6 +20,11 @@ export default class Embed extends HTMLElement {
     if (resp.ok) {
       const html = await resp.text();
       this.innerHTML = html;
+
+      const $style = document.createElement('style');
+      $style.innerHTML = /* css */`
+  `;
+      this.appendChild($style);
     }
   }
 }

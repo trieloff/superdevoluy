@@ -38,6 +38,34 @@ export default class TOC extends HTMLElement {
     });
     console.log($toc);
     this.innerHTML = '';
+    const $style = document.createElement('style');
+    $style.innerHTML = /* css */`
+  main helix-table-of-contents {
+      margin-top: 32px;
+  }
+  
+  main helix-table-of-contents .toc {
+      text-align: left;
+  }
+  
+  main helix-table-of-contents.horizontal .toc > div {
+      display: inline-block;
+  }
+  
+  main helix-table-of-contents .toc .toc-level-h2 {
+      margin: 8px;
+  }
+  
+  main helix-table-of-contents .toc .toc-level-h3 {
+      margin: 4px;
+      padding-left: 20px;
+  }
+  
+  main helix-table-of-contents .toc .toc-level-h4 {
+      padding-left: 40px;
+  }
+`;
+    this.appendChild($style);
     this.appendChild($toc);
   }
 }
