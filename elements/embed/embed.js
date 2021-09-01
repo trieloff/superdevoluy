@@ -10,10 +10,6 @@
  * governing permissions and limitations under the License.
  */
 /* global window */
-import {
-  loadCSS
-} from '../../scripts/scripts.js';
-
 class Embed extends HTMLElement {
   constructor() {
     super();

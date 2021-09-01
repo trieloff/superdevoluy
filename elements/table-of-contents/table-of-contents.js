@@ -15,7 +15,6 @@
 import {
   createTag,
   readBlockConfig,
-  loadCSS,
 } from '../../scripts/scripts.js';
 
 class TOC extends HTMLElement {

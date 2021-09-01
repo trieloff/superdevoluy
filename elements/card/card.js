@@ -1,5 +1,3 @@
-import { loadCSS } from '/scripts/scripts.js';
-
 class Card extends HTMLElement {
   constructor() {
     super();

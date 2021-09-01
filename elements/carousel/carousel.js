@@ -14,7 +14,7 @@
 /* eslint-disable import/named, import/extensions */
 
 import {
-  createTag, loadCSS
+  createTag
 } from '../../scripts/scripts.js';
 
 function masonrize($cells, $masonry, force) {
