@@ -44,4 +44,3 @@ class TOC extends HTMLElement {
 }
 
 customElements.define('helix-table-of-contents', TOC);
-loadCSS(`/elements/table-of-contents/table-of-contents.css`);

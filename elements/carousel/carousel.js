@@ -303,4 +303,3 @@ class Carousel extends HTMLElement {
 }
 
 customElements.define('helix-carousel', Carousel);
-loadCSS(`/elements/carousel/carousel.css`);

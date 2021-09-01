@@ -13,4 +13,3 @@ class Card extends HTMLElement {
 }
 
 customElements.define('helix-card', Card);
-loadCSS(`/elements/card/card.css`);

@@ -113,7 +113,6 @@ function wrapSections($sections) {
   Array.from($main.querySelectorAll('div.section-wrapper > div > *'))
     .filter(($elm) => $elm.tagName.toLowerCase().startsWith('helix-'))
     .forEach(($block) => {
-    console.log($block);
     let blockName = $block.tagName.toLowerCase().replace(/^helix-/, '');
     const $section = $block.closest('.section-wrapper');
     if ($section) {
@@ -148,7 +147,8 @@ export async function loadBlock($block) {
     // eslint-disable-next-line no-console
     console.log(`failed to load module for ${blockName}`, err);
   }
-
+  console.log('loading', blockName);
+  import(`/elements/${blockName}/${blockName}.js`);
   loadCSS(`/elements/${blockName}/${blockName}.css`);
 }
 
@@ -158,7 +158,7 @@ export async function loadBlock($block) {
  */
 async function loadBlocks($main) {
   $main
-    .querySelectorAll('div.section-wrapper > div > .block')
+    .querySelectorAll('div.section-wrapper > div > *[data-block-name]')
     .forEach(async ($block) => loadBlock($block));
 }
 

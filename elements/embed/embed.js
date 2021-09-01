@@ -29,4 +29,3 @@ class Embed extends HTMLElement {
 }
 
 customElements.define('helix-embed', Embed);
-loadCSS(`/elements/embed/embed.css`);
