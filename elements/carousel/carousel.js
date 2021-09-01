@@ -288,7 +288,7 @@ export async function decorateItemList($block) {
   }
 }
 
-class Carousel extends HTMLElement {
+export default class Carousel extends HTMLElement {
   constructor() {
     super();
     decorateItemList(this);
@@ -301,5 +301,3 @@ class Carousel extends HTMLElement {
     $fsmContainer.addEventListener('click', reduce);
   }
 }
-
-customElements.define('helix-carousel', Carousel);

@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 /* global window */
-class Embed extends HTMLElement {
+export default class Embed extends HTMLElement {
   constructor() {
     super();
     const path = this.textContent;
@@ -23,5 +23,3 @@ class Embed extends HTMLElement {
     }
   }
 }
-
-customElements.define('helix-embed', Embed);

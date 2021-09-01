@@ -147,8 +147,10 @@ export async function loadBlock($block) {
     // eslint-disable-next-line no-console
     console.log(`failed to load module for ${blockName}`, err);
   }
-  console.log('loading', blockName);
-  import(`/elements/${blockName}/${blockName}.js`);
+  console.log('loading', blockName, );
+  const mod = await import(`/elements/${blockName}/${blockName}.js`);
+  // do not load elements twice
+  customElements.get(`helix-${blockName}`) || customElements.define(`helix-${blockName}`, mod.default);
   loadCSS(`/elements/${blockName}/${blockName}.css`);
 }
 

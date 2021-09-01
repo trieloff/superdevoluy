@@ -1,4 +1,4 @@
-class Card extends HTMLElement {
+export default class Card extends HTMLElement {
   constructor() {
     super();
     let html = '';
@@ -9,5 +9,3 @@ class Card extends HTMLElement {
     this.innerHTML = `<div style="margin-bottom: 50px;">${html}</div>`;
   }
 }
-
-customElements.define('helix-card', Card);

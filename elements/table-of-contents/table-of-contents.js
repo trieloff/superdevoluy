@@ -17,7 +17,7 @@ import {
   readBlockConfig,
 } from '../../scripts/scripts.js';
 
-class TOC extends HTMLElement {
+export default class TOC extends HTMLElement {
   constructor() {
     super();
     const config = readBlockConfig(this);
@@ -41,5 +41,3 @@ class TOC extends HTMLElement {
     this.appendChild($toc);
   }
 }
-
-customElements.define('helix-table-of-contents', TOC);
