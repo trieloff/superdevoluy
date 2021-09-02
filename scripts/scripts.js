@@ -151,7 +151,6 @@ export async function loadBlock($block) {
   const mod = await import(`/elements/${blockName}/${blockName}.js`);
   // do not load elements twice
   customElements.get(`helix-${blockName}`) || customElements.define(`helix-${blockName}`, mod.default);
-  loadCSS(`/elements/${blockName}/${blockName}.css`);
 }
 
 /**
